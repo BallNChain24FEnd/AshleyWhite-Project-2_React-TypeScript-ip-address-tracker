@@ -1,0 +1,9 @@
+/* Main application styles */
+#root {
+  min-height: 100vh;
+}
+
+main {
+  text-align: center;
+  padding: 2rem;
+}
