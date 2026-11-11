@@ -1,9 +1,90 @@
-/* Main application styles */
+/* Main application */
 #root {
   min-height: 100vh;
 }
 
 main {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Header */
+.header {
+  background: url("./assets/pattern-bg-desktop.png") center / cover;
+  min-height: 17rem;
+  padding: 2rem 1rem;
   text-align: center;
+  color: white;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 0 2rem;
+}
+
+/* Search placeholder */
+.search-placeholder {
+  background: white;
+  color: #555;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  max-width: 34rem;
+  margin: auto;
+  text-align: left;
+}
+
+/* Location information */
+.location-info {
+  background: white;
+  border-radius: 0.8rem;
   padding: 2rem;
+  max-width: 70rem;
+  width: 90%;
+  margin: -4rem auto 0;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  box-shadow: 0 0.4rem 1rem #0002;
+}
+
+.location-info h2 {
+  color: gray;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.location-info p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Map placeholder */
+.map-placeholder {
+  background: #e6e6e6;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  color: #555;
+}
+
+/* Mobile layout */
+@media (max-width: 48rem) {
+  .header {
+    background-image: url("./assets/pattern-bg-mobile.png");
+  }
+
+  .location-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin-top: -3rem;
+    padding: 1rem;
+  }
+
+  .location-info p {
+    margin: 0.5rem 0;
+  }
 }
