@@ -107,6 +107,32 @@ main {
   color: #555;
 }
 
+/* Search validation error */
+.error-message {
+  color: #fff;
+  background: #a32020;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  max-width: 34rem;
+  margin: 0.5rem auto;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Individual information cards */
+.info-card {
+  min-width: 0;
+}
+
+.info-card:not(:last-child) {
+  border-right: 1px solid #ddd;
+  padding-right: 1rem;
+}
+
+.info-card p {
+  overflow-wrap: anywhere;
+}
+
 /* Mobile layout */
 @media (max-width: 48rem) {
   .header {
@@ -125,14 +151,10 @@ main {
   }
 }
 
-/* Search validation error */
-.error-message {
-  color: #fff;
-  background: #a32020;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  max-width: 34rem;
-  margin: 0.5rem auto;
-  font-size: 0.9rem;
-  text-align: left;
+/* Stack cards on mobile */
+@media (max-width: 48rem) {
+  .info-card:not(:last-child) {
+    border-right: none;
+    padding-right: 0;
+  }
 }

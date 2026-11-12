@@ -1,5 +1,21 @@
 import Header from "./components/Header";
+import LocationInfo from "./components/LocationInfo";
+import type { IPifyData } from "./types/ipify";
 import "./App.css";
+
+// Temporary mock IPify data
+const mockData: IPifyData = {
+  ip: "8.8.8.8",
+  location: {
+    city: "Mountain View",
+    region: "California",
+    country: "US",
+    timezone: "-07:00",
+    lat: 37.386,
+    lng: -122.0838,
+  },
+  isp: "Google LLC",
+};
 
 // Main application
 export default function App() {
@@ -12,28 +28,8 @@ export default function App() {
     <main>
       <Header onSearch={handleSearch} />
 
-      {/* Location information placeholder */}
-      <section className="location-info" aria-label="IP location information">
-        <div>
-          <h2>IP Address</h2>
-          <p>---</p>
-        </div>
-
-        <div>
-          <h2>Location</h2>
-          <p>---</p>
-        </div>
-
-        <div>
-          <h2>Timezone</h2>
-          <p>---</p>
-        </div>
-
-        <div>
-          <h2>ISP</h2>
-          <p>---</p>
-        </div>
-      </section>
+      {/* Display mock location data */}
+      <LocationInfo data={mockData} />
 
       {/* Map placeholder */}
       <section className="map-placeholder" aria-label="Location map">
