@@ -23,15 +23,51 @@ main {
   margin: 0 0 2rem;
 }
 
-/* Search placeholder */
-.search-placeholder {
-  background: white;
-  color: #555;
-  padding: 1.2rem;
-  border-radius: 0.8rem;
+/* Search form */
+.search-form {
+  display: flex;
   max-width: 34rem;
   margin: auto;
-  text-align: left;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 1.2rem;
+  border: none;
+  font-size: 1rem;
+  outline-offset: -0.2rem;
+}
+
+.search-form button {
+  background: #000;
+  border: none;
+  padding: 0 1.5rem;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background: #333;
+}
+
+.search-form button:focus-visible {
+  outline: 0.2rem solid #fff;
+  outline-offset: -0.3rem;
+}
+
+/* Accessible hidden label */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Location information */

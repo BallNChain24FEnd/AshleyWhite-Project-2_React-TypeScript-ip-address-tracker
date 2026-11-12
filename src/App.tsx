@@ -1,11 +1,16 @@
 import Header from "./components/Header";
 import "./App.css";
 
-// Main application layout
+// Main application
 export default function App() {
+  // Handle search from child component
+  function handleSearch(search: string) {
+    console.log("Searching for:", search);
+  }
+
   return (
     <main>
-      <Header />
+      <Header onSearch={handleSearch} />
 
       {/* Location information placeholder */}
       <section className="location-info" aria-label="IP location information">
