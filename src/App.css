@@ -70,16 +70,20 @@ main {
   border: 0;
 }
 
-/* Location information */
+/* Location card overlaps header and map */
 .location-info {
   background: white;
   border-radius: 0.8rem;
   padding: 2rem;
   max-width: 70rem;
   width: 90%;
-  margin: -4rem auto 0;
-  position: relative;
-  z-index: 2;
+  margin: 0 auto;
+  position: absolute;
+  top: 12.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -96,15 +100,6 @@ main {
 .location-info p {
   font-size: 1.3rem;
   font-weight: bold;
-}
-
-/* Map placeholder */
-.map-placeholder {
-  background: #e6e6e6;
-  min-height: 60vh;
-  display: grid;
-  place-items: center;
-  color: #555;
 }
 
 /* Search validation error */
@@ -133,6 +128,39 @@ main {
   overflow-wrap: anywhere;
 }
 
+/* Map starts immediately below header */
+.map-section {
+  width: 100%;
+  height: calc(100vh - 17rem);
+  min-height: 35rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Leaflet fills map section */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pointer on location marker */
+.leaflet-marker-icon {
+  cursor: pointer !important;
+}
+
+/* Keep map below information cards */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom map marker */
+.custom-marker {
+  background: transparent;
+  border: none;
+  cursor: pointer !important;
+}
+
 /* Mobile layout */
 @media (max-width: 48rem) {
   .header {
@@ -142,19 +170,18 @@ main {
   .location-info {
     grid-template-columns: 1fr;
     text-align: center;
-    margin-top: -3rem;
-    padding: 1rem;
+    top: 10.5rem;
+    padding: 1.5rem;
+    gap: 0.5rem;
   }
 
-  .location-info p {
-    margin: 0.5rem 0;
-  }
-}
-
-/* Stack cards on mobile */
-@media (max-width: 48rem) {
   .info-card:not(:last-child) {
     border-right: none;
     padding-right: 0;
+  }
+
+  .map-section {
+    height: calc(100vh - 17rem);
+    min-height: 35rem;
   }
 }

@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import LocationInfo from "./components/LocationInfo";
+import MapView from "./components/MapView";
 import type { IPifyData } from "./types/ipify";
 import "./App.css";
 
@@ -28,13 +29,14 @@ export default function App() {
     <main>
       <Header onSearch={handleSearch} />
 
-      {/* Display mock location data */}
+      {/* Display location information */}
       <LocationInfo data={mockData} />
 
-      {/* Map placeholder */}
-      <section className="map-placeholder" aria-label="Location map">
-        <p>Interactive map on the way soon!</p>
-      </section>
+      {/* Display Leaflet map */}
+      <MapView
+        lat={mockData.location.lat}
+        lng={mockData.location.lng}
+      />
     </main>
   );
 }
