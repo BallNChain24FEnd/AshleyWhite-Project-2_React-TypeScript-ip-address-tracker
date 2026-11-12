@@ -185,3 +185,48 @@ main {
     min-height: 35rem;
   }
 }
+
+/* Temporary mock test buttons */
+.mock-buttons {
+  position: absolute;
+  top: 24rem;
+  left: 1rem;
+  z-index: 1001;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mock-buttons button {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.mock-buttons button:hover {
+  background: #555;
+}
+
+/* Mobile mock buttons */
+@media (max-width: 48rem) {
+  .mock-buttons {
+    top: 29rem;
+    left: 0.5rem;
+  }
+}
+
+/* Black map marker */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  z-index: 500;
+}
+
+.custom-marker svg {
+  display: block;
+  width: 46px;
+  height: 58px;
+}
