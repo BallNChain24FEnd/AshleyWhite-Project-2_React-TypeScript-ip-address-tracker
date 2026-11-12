@@ -124,3 +124,15 @@ main {
     margin: 0.5rem 0;
   }
 }
+
+/* Search validation error */
+.error-message {
+  color: #fff;
+  background: #a32020;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  max-width: 34rem;
+  margin: 0.5rem auto;
+  font-size: 0.9rem;
+  text-align: left;
+}
