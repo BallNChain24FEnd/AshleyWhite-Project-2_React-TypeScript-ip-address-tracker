@@ -2,11 +2,12 @@ import { useState } from "react";
 import Header from "./components/Header";
 import LocationInfo from "./components/LocationInfo";
 import MapView from "./components/MapView";
+import useIPLocation from "./hooks/useIPLocation";
 import type { IPifyData } from "./types/ipify";
 import "./App.css";
 
-// Mock location 1
-const californiaData: IPifyData = {
+// Starting location for preview
+const mockData: IPifyData = {
   ip: "8.8.8.8",
   location: {
     city: "Mountain View",
@@ -19,50 +20,43 @@ const californiaData: IPifyData = {
   isp: "Google LLC",
 };
 
-// Mock location 2
-const newYorkData: IPifyData = {
-  ip: "192.0.2.1",
-  location: {
-    city: "New York",
-    region: "New York",
-    country: "US",
-    timezone: "-05:00",
-    lat: 40.7128,
-    lng: -74.006,
-  },
-  isp: "Example ISP",
-};
-
-// Main application
 export default function App() {
-  // Store selected location
-  const [locationData, setLocationData] =
-    useState<IPifyData>(californiaData);
+  // Store submitted search
+  const [search, setSearch] = useState("");
 
-  // Handle search without API
-  function handleSearch(search: string) {
-    console.log("Searching for:", search);
+  // Get location from custom hook
+  const { data, loading, error } = useIPLocation(search);
+
+  // Use API result or starting location
+  const locationData = data || mockData;
+
+  // Search only when submitted
+  function handleSearch(value: string) {
+    setSearch(value);
   }
 
   return (
     <main>
       <Header onSearch={handleSearch} />
 
-      {/* Temporary mock testing buttons */}
-      <div className="mock-buttons">
-        <button onClick={() => setLocationData(californiaData)}>
-          California
-        </button>
+      {/* Show search progress */}
+      {loading && (
+        <p className="search-status" role="status">
+          Searching for location...
+        </p>
+      )}
 
-        <button onClick={() => setLocationData(newYorkData)}>
-          New York
-        </button>
-      </div>
+      {/* Show search errors */}
+      {error && (
+        <p className="search-status" role="alert">
+          {error}
+        </p>
+      )}
 
-      {/* Display selected location */}
+      {/* Display location information */}
       <LocationInfo data={locationData} />
 
-      {/* Update map coordinates */}
+      {/* Update map automatically */}
       <MapView
         lat={locationData.location.lat}
         lng={locationData.location.lng}
