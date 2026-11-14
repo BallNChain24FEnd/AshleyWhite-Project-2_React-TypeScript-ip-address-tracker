@@ -214,3 +214,15 @@ main {
   text-align: center;
   max-width: 90%;
 }
+
+/* Error message */
+.error-status {
+  color: #b42318;
+  border: 0.1rem solid #b42318;
+}
+
+/* Success message */
+.success-status {
+  color: #166534;
+  border: 0.1rem solid #166534;
+}

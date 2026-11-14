@@ -39,17 +39,24 @@ export default function App() {
     <main>
       <Header onSearch={handleSearch} />
 
-      {/* Show search progress */}
+      {/* Loading message */}
       {loading && (
         <p className="search-status" role="status">
           Searching for location...
         </p>
       )}
 
-      {/* Show search errors */}
+      {/* Error message */}
       {error && (
-        <p className="search-status" role="alert">
+        <p className="search-status error-status" role="alert">
           {error}
+        </p>
+      )}
+
+      {/* Success message */}
+      {data && !loading && !error && (
+        <p className="search-status success-status" role="status">
+          Location found successfully!
         </p>
       )}
 
