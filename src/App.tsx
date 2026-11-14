@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import LocationInfo from "./components/LocationInfo";
 import MapView from "./components/MapView";
 import useIPLocation from "./hooks/useIPLocation";
+import StatusMessage from "./components/StatusMessage";
 import type { IPifyData } from "./types/ipify";
 import "./App.css";
 
@@ -41,23 +42,23 @@ export default function App() {
 
       {/* Loading message */}
       {loading && (
-        <p className="search-status" role="status">
+        <StatusMessage type="loading">
           Searching for location...
-        </p>
+        </StatusMessage>
       )}
 
       {/* Error message */}
       {error && (
-        <p className="search-status error-status" role="alert">
+        <StatusMessage type="error">
           {error}
-        </p>
+        </StatusMessage>
       )}
 
       {/* Success message */}
       {data && !loading && !error && (
-        <p className="search-status success-status" role="status">
+        <StatusMessage type="success">
           Location found successfully!
-        </p>
+        </StatusMessage>
       )}
 
       {/* Display location information */}
