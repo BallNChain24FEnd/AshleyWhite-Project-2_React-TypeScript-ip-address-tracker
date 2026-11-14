@@ -56,7 +56,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
         <input
           id="ip-search"
           type="text"
-          placeholder="Search for any IP address or domain"
+          placeholder="Search IP or domain"
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);

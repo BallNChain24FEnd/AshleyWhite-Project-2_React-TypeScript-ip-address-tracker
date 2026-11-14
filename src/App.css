@@ -226,3 +226,85 @@ main {
   color: #166534;
   border: 0.1rem solid #166534;
 }
+
+/* Desktop and tablet layout */
+.location-info {
+  width: 90%;
+  max-width: 70rem;
+  box-sizing: border-box;
+}
+
+/* Tablet layout */
+@media (min-width: 48.01rem) and (max-width: 64rem) {
+  .location-info {
+    width: 94%;
+    padding: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .info-card p {
+    font-size: 1.1rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 48rem) {
+  .header {
+    background-image: url("./assets/pattern-bg-mobile.png");
+    min-height: 17rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .location-info {
+    width: 90%;
+    max-width: 24rem;
+    top: 10.5rem;
+    padding: 1.25rem;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .info-card {
+    padding: 0.25rem 0;
+    border-right: none;
+  }
+
+  .info-card p {
+    font-size: 1.15rem;
+    overflow-wrap: anywhere;
+  }
+
+  .map-section {
+    min-height: 38rem;
+  }
+
+  .search-status {
+    top: 8.5rem;
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  /* Mobile map positioning */
+  .map-section {
+    min-height: 38rem;
+  }
+
+  /* Keep information card above map */
+  .location-info {
+    z-index: 1000;
+  }
+}
+
+/* Mobile search input */
+@media (max-width: 48rem) {
+  .search-form input {
+    min-width: 0;
+    font-size: 0.85rem;
+  }
+
+  .search-form input::placeholder {
+    font-size: 0.8rem;
+  }
+}
