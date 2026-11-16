@@ -32,27 +32,31 @@ const locationIcon = L.divIcon({
     popupAnchor: [0, -58],
 });
 
-// Update existing map location
+
+ // Update existing map location
 function MapUpdater({ lat, lng }: MapViewProps) {
-    const map = useMap();
+  const map = useMap();
 
-    useEffect(() => {
-        // Move map without recreating it
-        // Center map on location
-        map.setView([lat, lng], 13, {
-            animate: false,
-        });
+  useEffect(() => {
+    // Center map on location
+    map.setView([lat, lng], 13, {
+      animate: false,
+    });
 
-        // Move marker lower on mobile screens
-        if (window.innerWidth <= 768) {
-            map.panBy([0, -150], {
-                animate: false,
-            });
-        }
+    // Move marker lower to avoid the information card
+    if (window.innerWidth <= 768) {
+      // Mobile: larger adjustment for stacked cards
+      map.panBy([0, -220], { animate: false });
+    } else if (window.innerWidth <= 1024) {
+      // Tablet: medium adjustment
+      map.panBy([0, -130], { animate: false });
+    } else {
+      // Desktop: smaller adjustment
+      map.panBy([0, -70], { animate: false });
+    }
+  }, [map, lat, lng]);
 
-    }, [map, lat, lng]);
-
-    return null;
+  return null;
 }
 
 // Map component

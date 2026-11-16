@@ -308,3 +308,18 @@ main {
     font-size: 0.8rem;
   }
 }
+
+/* Make the validation error easy to read */
+#search-error {
+  position: relative;
+  z-index: 1101;
+  margin: 0.5rem auto 0;
+  padding: 0.5rem 0.75rem;
+  max-width: 22rem;
+  border-radius: 0.5rem;
+  background: white;
+  color: #b91c1c;
+  text-align: center;
+  font-size: 0.85rem;
+}
+

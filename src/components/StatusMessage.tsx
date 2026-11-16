@@ -6,7 +6,7 @@ interface StatusMessageProps {
   type: "loading" | "error" | "success";
 }
 
-// Reusable status component
+// Reusable accessible status component
 export default function StatusMessage({
   children,
   type,
@@ -17,6 +17,7 @@ export default function StatusMessage({
         type === "error" ? "error-status" : ""
       } ${type === "success" ? "success-status" : ""}`}
       role={type === "error" ? "alert" : "status"}
+      aria-live={type === "error" ? "assertive" : "polite"}
     >
       {children}
     </p>
